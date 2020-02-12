@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+  <% if @gi = 1 %>
+  <div class="alert alert-success" role="alert">
+    <p>Votre gossip a été créé avec succès !</p>
+  </div>
+<% end %>
+  
+  <div class = "container text-center">
+    <h1>The Gossip Project</h1>
+    <h2>Salam akhi</h2>
+    <p>Ajoute un gossip <%= link_to "ici", new_gossip_path %>
+    <p>Ci-dessous se trouvent tous les gossips deja publiés !
+    <% @gossips.all.each do |gossip| %>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted text-center"><%= link_to "#{gossip.user.first_name}", profil_path(gossip.user.id)%></h6>
+          <h5 class="card-title text-center"><%= link_to "#{gossip.title}", gossip_path(gossip.id) %>
+          <p class= " mb-2 text-muted"><%= gossip.comments.length%> commentaire(s)</p>
+        </div>
+      </div>
+      <% end %>
+  </div>
+  </body>
+</html>
+

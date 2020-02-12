@@ -1,0 +1,16 @@
+<div class = "container mx-auto">
+    <div class="container mx-auto" style="width: 18rem;">
+      <h1 class = "text-center"><%=@city.name%></h1>
+</div>
+<div class="container mx-auto" style="width: 18rem;">
+      <h3 class = "text-center">Gossips publiés depuis cette ville </h3>
+</div>
+      <% @user_gossips.each do |gossip| %>
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted text-center"><%= link_to "#{gossip.user.first_name}", profil_path(gossip.user.id)%></h6>
+            <h5 class="card-title text-center"><%= link_to "#{gossip.title}", gossip_path(gossip.id) %>
+          </div>
+        </div>
+      <%end %>
+    
