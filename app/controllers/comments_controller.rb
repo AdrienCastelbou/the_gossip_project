@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :authenticate_user, only: [:create, :edit]
   def index
       
   end
@@ -39,4 +39,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to gossips_path
   end
+  
+
 end

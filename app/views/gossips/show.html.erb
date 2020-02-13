@@ -10,8 +10,10 @@
         <p class="card-text"><%= @gossip.content %></p>
         <h6 class="card-subtitle mb-2 text-muted">Rédigé le : <%= @gossip.created_at%></h6>
         <h6 class="card-subtitle mb-2 text-muted">Depuis : <%= link_to "#{@gossip.user.city.name}", city_path(@gossip.user.city.id)%></h6>
-        <%= link_to "Editer le potin", edit_gossip_path(@gossip.id), class: "btn btn-success"%>
-        <a href= "<%#{gossip_path(@gossip.id)}%>" class= "btn btn-danger" data-confirm = "Sur ?" data-method= "delete">Supprimer</a>
+        <% if current_user == @gossip.user%>
+          <%= link_to "Editer le potin", edit_gossip_path(@gossip.id), class: "btn btn-success"%>
+          <a href= "<%#{gossip_path(@gossip.id)}%>" class= "btn btn-danger" data-confirm = "Sur ?" data-method= "delete">Supprimer</a>
+        <% end %>
         </div>
       </div>
     </div>
@@ -22,7 +24,9 @@
             <h5 class="card-title"><%= comment.content %></h5>
             <p class="card-text"><%= comment.user.first_name %></p>
             <p class="card-subtitle mb-2 text-muted">Publié le : <%= comment.created_at%></p>
-             <%= link_to "Editer le commentaire", edit_gossip_comment_path(@gossip.id, comment.id), class: "btn text-primary"%>
+            <% if current_user == comment.user %>
+              <%= link_to "Editer le commentaire", edit_gossip_comment_path(@gossip.id, comment.id), class: "btn text-primary"%>
+            <% end %>
           </div>
         <%end%>
     </div>
