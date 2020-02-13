@@ -3,12 +3,8 @@
     <title>The Gossip Project</title>
   </head>
   <body>
-  <% if @gi = 1 %>
-  <div class="alert alert-success" role="alert">
-    <p>Votre gossip a été créé avec succès !</p>
-  </div>
-<% end %>
   
+  <h2>Bienvenue <%= User.find_by(id: session[:user_id]).email %> !</h2>
   <div class = "container text-center">
     <h1>The Gossip Project</h1>
     <h2>Salam akhi</h2>
