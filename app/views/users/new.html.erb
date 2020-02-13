@@ -1,27 +1,27 @@
 <%= form_tag users_path, method: "post" do %>
 
       <%= label_tag 'Prénom' %>
-      <%= text_field_tag 'first_name'  %>
+      <%= text_field_tag 'first_name', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'Nom' %>
-      <%= text_field_tag 'lastt_name'  %>
+      <%= text_field_tag 'lastt_name', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'age' %>
-      <%= text_field_tag 'age'  %>
+      <%= text_field_tag 'age', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'email' %>
-      <%= text_field_tag 'email'  %>
+      <%= text_field_tag 'email', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'ville' %>
-      <%= text_field_tag 'city'  %>
+      <%= text_field_tag 'city', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'Mot de passe' %>
-      <%= text_field_tag 'password'  %>
+      <%= text_field_tag 'password', "", class: 'form-control'  %>
       <br /> <br />
       <%= label_tag 'Confirmer le mot de passe' %>
-      <%= text_field_tag 'password_confirmation'  %>
+      <%= text_field_tag 'password_confirmation', "", class: 'form-control'  %>
       <br /> <br />
-      <%= submit_tag "S'inscrire" %>
+      <%= submit_tag "S'inscrire", class: "btn btn-primary" %>
 
 <% end %>
 

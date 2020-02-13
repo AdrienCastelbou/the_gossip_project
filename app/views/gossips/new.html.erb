@@ -1,13 +1,13 @@
 <%= form_tag gossips_path, method: "post" do %>
 
       <%= label_tag 'Title' %>
-      <%= text_field_tag 'title'  %>
+      <%= text_field_tag 'title', "", class: 'form-control'  %>
       <br /> <br />
 
       <%= label_tag 'Content' %>
-      <%= text_area_tag 'content'  %>
+      <%= text_area_tag 'content', "", class: 'form-control' %>
       <br /> <br />
-      <%= submit_tag "Create Gossip" %>
+      <%= submit_tag "Create Gossip", class: "btn btn-primary" %>
 
 <% end %>
 <% if @gossip.errors.any? %>

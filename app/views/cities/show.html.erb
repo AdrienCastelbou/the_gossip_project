@@ -10,6 +10,15 @@
           <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted text-center"><%= link_to "#{gossip.user.first_name}", profil_path(gossip.user.id)%></h6>
             <h5 class="card-title text-center"><%= link_to "#{gossip.title}", gossip_path(gossip.id) %>
+            <%if current_user%>
+          <% pre_like = gossip.likes.find { |like| like.user_id == current_user.id} %>
+            <% if pre_like %>
+              <%= button_to 'Unlike', gossip_like_path(gossip, pre_like), method: :delete, class:"btn btn-danger "%>
+            <% else %>
+              <%= button_to 'Like', gossip_likes_path(gossip), method: :post, class:"btn btn-primary " %>
+            <% end %>
+          <%end%>
+          <p><%= gossip.likes.count %> <%= (gossip.likes.count) == 1 ? 'Like' : 'Likes'%></p>
           </div>
         </div>
       <%end %>
