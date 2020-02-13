@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
-    end
+    end 
+  end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to gossips_path
   end
 end
