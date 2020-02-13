@@ -19,10 +19,10 @@ end
   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, age: rand(18..30), city: City.all.sample, email: Faker::Internet.email, password: "a" )
 end
 20.times do
-  Gossip.create(user: User.all.sample, content: Faker::Lorem.sentence(word_count: rand(2..10)), title: Faker::Lorem.sentence(word_count: rand(1..4)))
+  Gossip.create(user: User.all.sample, content: Faker::ChuckNorris.fact, title: Faker::Lorem.sentence(word_count: rand(1..5)))
 end
 Gossip.all.each do |gossip|
   rand(1..5).times do
-    Comment.create(content: Faker::Lorem.sentence(word_count: rand(2..10)), user: User.all.sample, gossip: gossip)
+    Comment.create(content: Faker::ChuckNorris.fact, user: User.all.sample, gossip: gossip)
   end
 end
