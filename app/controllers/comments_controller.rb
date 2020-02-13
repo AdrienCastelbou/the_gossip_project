@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(content: params[:content], user: User.all.sample, gossip: Gossip.find(params[:gossip_id]))
+    @comment = Comment.create(content: params[:content], user: current_user, gossip: Gossip.find(params[:gossip_id]))
     redirect_to gossip_path(@comment.gossip.id)
   end
 
