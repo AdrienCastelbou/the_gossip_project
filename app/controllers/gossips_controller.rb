@@ -14,10 +14,11 @@ class GossipsController < ApplicationController
   end
 
   def create
-      @gossip = Gossip.new(user: User.all.sample,  title: params[:title], content: params[:content])
-      @gossip.save
+      @gossip = Gossip.new(title: params[:title], content: params[:content])
+      puts @gossip
+      @gossip.user = User.find_by(id: session[:user_id])
+      puts @gossip
       if @gossip.save
-        @i = 1
         redirect_to root_path 
       else
         render new_gossip_path

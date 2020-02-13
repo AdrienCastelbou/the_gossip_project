@@ -13,8 +13,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], city: City.create(name: "Paris"), password: params[:password], password_confirmation: params[:password_confirmation] )
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], city: City.create(name: "Paris"), password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email] )
     if @user.save
+      session[:user_id] = @user.id
       redirect_to profil_path(@user.id)
     else
       render new_user_path
