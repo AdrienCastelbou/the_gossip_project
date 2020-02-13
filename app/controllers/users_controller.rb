@@ -13,7 +13,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], city: City.create(name: "Paris"), password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email] )
+    city = params[:city]
+    City.all.each do |old_city|
+      if old_city.name.downcase == city.downcase
+        city = old_city
+      end
+    end
+
+    city = City.new(name: params[:city].capitalize) if city == params[:city]
+
+    @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], city: city, password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email] )
     if @user.save
       log_in(@user)
       redirect_to profil_path(@user.id)

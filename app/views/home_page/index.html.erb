@@ -3,7 +3,7 @@
     <title>The Gossip Project</title>
   </head>
   <body>
-  <%if session[:user_id]%>
+  <%if current_user%>
     <h2>Bienvenue <%= current_user.first_name %> !</h2>
   <% end %>
   <div class = "container text-center">

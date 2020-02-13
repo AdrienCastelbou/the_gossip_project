@@ -37234,3 +37234,759 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 94ms (Views: 82.0ms | ActiveRecord: 1.8ms)
 
 
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (133.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "the-gossip-project_development"[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (69.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "the-gossip-project_test"[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (187.2ms)[0m  [1m[35mCREATE DATABASE "the-gossip-project_development" ENCODING = 'unicode'[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (188.0ms)[0m  [1m[35mCREATE DATABASE "the-gossip-project_test" ENCODING = 'unicode'[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(702395403811080105)[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateGossips (20200210112544)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "author" character varying, "content" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200210112544_create_gossips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200210112544"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to AddTitle (20200210124416)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "gossips" ADD "title" character varying[0m
+  ↳ db/migrate/20200210124416_add_title.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200210124416"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateUsers (20200210140522)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "age" integer, "city" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200210140522_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200210140522"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to ChangeUserNameByUserId (20200210140707)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "gossips" DROP COLUMN "author"[0m
+  ↳ db/migrate/20200210140707_change_user_name_by_user_id.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "gossips" ADD "user_id" bigint[0m
+  ↳ db/migrate/20200210140707_change_user_name_by_user_id.rb:4
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/migrate/20200210140707_change_user_name_by_user_id.rb:4
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "gossips" ADD CONSTRAINT "fk_rails_9e6296a836"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/migrate/20200210140707_change_user_name_by_user_id.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200210140707"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateCities (20200212104552)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "cities" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212104552_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212104552"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to ChangeCityByCityId (20200212104654)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "city"[0m
+  ↳ db/migrate/20200212104654_change_city_by_city_id.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "city_id" bigint[0m
+  ↳ db/migrate/20200212104654_change_city_by_city_id.rb:4
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_city_id" ON "users"  ("city_id")[0m
+  ↳ db/migrate/20200212104654_change_city_by_city_id.rb:4
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_9c7442481a"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/migrate/20200212104654_change_city_by_city_id.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212104654"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to CreateComments (20200212131539)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "content" character varying, "user_id" bigint, "gossip_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200212131539_create_comments.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/migrate/20200212131539_create_comments.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_gossip_id" ON "comments"  ("gossip_id")[0m
+  ↳ db/migrate/20200212131539_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212131539"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to AddCommentToGossipsAndUsers (20200212131836)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200212131836"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to AddPassword (20200213102039)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" character varying[0m
+  ↳ db/migrate/20200213102039_add_password.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213102039"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Migrating to AddEmail (20200213112544)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying[0m
+  ↳ db/migrate/20200213112544_add_email.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200213112544"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-13 14:02:00.487444"], ["updated_at", "2020-02-13 14:02:00.487444"]]
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(702395403811080105)[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/" for ::1 at 2020-02-13 15:02:13 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/adriencastelbou/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  Rendered home_page/index.html.erb within layouts/application (29.8ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    4:   </head>
+    5:   <body>
+    6:   <%if session[:user_id]%>
+    7:     <h2>Bienvenue <%= current_user.first_name %> !</h2>
+    8:   <% end %>
+    9:   <div class = "container text-center">
+   10:     <h1>The Gossip Project</h1>
+  
+app/views/home_page/index.html.erb:7:in `_app_views_home_page_index_html_erb__898664019508673157_70193772441220'
+Started GET "/" for ::1 at 2020-02-13 15:02:39 +0100
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  Rendered home_page/index.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    4:   </head>
+    5:   <body>
+    6:   <%if session[:user_id]%>
+    7:     <h2>Bienvenue <%= current_user.first_name %> !</h2>
+    8:   <% end %>
+    9:   <div class = "container text-center">
+   10:     <h1>The Gossip Project</h1>
+  
+app/views/home_page/index.html.erb:7:in `_app_views_home_page_index_html_erb__898664019508673157_70193791951780'
+Started GET "/gossips" for ::1 at 2020-02-13 15:02:59 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  Rendered gossips/index.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    4:   </head>
+    5:   <body>
+    6:   <%if session[:user_id]%>
+    7:     <h2>Bienvenue <%= current_user.first_name %> !</h2>
+    8:   <% end %>
+    9:   <div class = "container text-center">
+   10:     <h1>The Gossip Project</h1>
+  
+app/views/gossips/index.html.erb:7:in `_app_views_gossips_index_html_erb__3281927263802330123_70193793421880'
+Started GET "/gossips" for ::1 at 2020-02-13 15:03:32 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (1.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  Rendered gossips/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 398ms (Views: 384.5ms | ActiveRecord: 3.8ms)
+
+
+Started DELETE "/sessions/333c7ddac0cf1dcc838271956adf08dd" for ::1 at 2020-02-13 15:03:39 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4Bxdp4x9w3rJs3T8Gjlcwq2uRiiutS8U9AFpDpmjFKgTtqCr1N0XuO/0Y8rONpl1W86QpA5zPXamcm0SA49LyA==", "id"=>"333c7ddac0cf1dcc838271956adf08dd"}
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips" for ::1 at 2020-02-13 15:03:39 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  Rendered gossips/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 61ms (Views: 55.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/sessions/new" for ::1 at 2020-02-13 15:03:43 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 88ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-02-13 15:03:44 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 83ms (Views: 65.0ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/users" for ::1 at 2020-02-13 15:04:00 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ckmv3upZA95+2NYsbJso+X6I0G5pCIwwoCWXuTlMeGjxByARcQaRW9M9ZPp/v8k+T8sXSJ0uvA4csfULhGjV5Q==", "first_name"=>"Adrien", "lastt_name"=>"Castelbou", "age"=>"20", "email"=>"acastelbou1@gmail.com", "city"=>"Paris", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"S'inscrire"}
+  [1m[36mCity Load (4.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/users_controller.rb:17
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 6.6ms)
+
+
+  
+NoMethodError (undefined method `capitalize' for nil:NilClass):
+  
+app/controllers/users_controller.rb:23:in `create'
+Started POST "/users" for ::1 at 2020-02-13 15:04:24 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ckmv3upZA95+2NYsbJso+X6I0G5pCIwwoCWXuTlMeGjxByARcQaRW9M9ZPp/v8k+T8sXSJ0uvA4csfULhGjV5Q==", "first_name"=>"Adrien", "lastt_name"=>"Castelbou", "age"=>"20", "email"=>"acastelbou1@gmail.com", "city"=>"Paris", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"S'inscrire"}
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mCity Create (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Paris"], ["created_at", "2020-02-13 14:04:25.304965"], ["updated_at", "2020-02-13 14:04:25.304965"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "age", "created_at", "updated_at", "city_id", "password_digest", "email") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Adrien"], ["age", 20], ["created_at", "2020-02-13 14:04:25.308077"], ["updated_at", "2020-02-13 14:04:25.308077"], ["city_id", 1], ["password_digest", "$2a$12$CYDfu8a2gIV0Mum/1c/l2uyijcqthSiU13dHSIzgeh.es1tn.y5gu"], ["email", "acastelbou1@gmail.com"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Redirected to http://localhost:3000/user/1
+Completed 302 Found in 339ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/user/1" for ::1 at 2020-02-13 15:04:25 +0100
+Processing by ShowUserController#profil as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:3
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/controllers/show_user_controller.rb:5
+  Rendering show_user/profil.html.erb within layouts/application
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/show_user/profil.html.erb:11
+  Rendered show_user/profil.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 114ms (Views: 71.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/cities/1" for ::1 at 2020-02-13 15:04:27 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:3
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 1]]
+  ↳ app/controllers/cities_controller.rb:5
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/cities_controller.rb:6
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 88ms (Views: 68.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-13 15:04:32 +0100
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/home_page/index.html.erb:14
+  Rendered home_page/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 69ms (Views: 55.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/gossips/new" for ::1 at 2020-02-13 15:04:34 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 67ms (Views: 53.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/gossips" for ::1 at 2020-02-13 15:04:37 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9DftQ6kiydKdnyQwj2TI1QPqBmYzy1CqFlBaiFc3I9dwbla8eR0k2lUFmtsEnhhCYvd9tICWBmY3dd21CgEJ2w==", "title"=>"Hello world", "content"=>"l", "commit"=>"Create Gossip"}
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossips_controller.rb:18
+  [1m[36mGossip Create (1.2ms)[0m  [1m[32mINSERT INTO "gossips" ("content", "created_at", "updated_at", "title", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "l"], ["created_at", "2020-02-13 14:04:37.742132"], ["updated_at", "2020-02-13 14:04:37.742132"], ["title", "Hello world"], ["user_id", 1]]
+  ↳ app/controllers/gossips_controller.rb:18
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossips_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/" for ::1 at 2020-02-13 15:04:37 +0100
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/home_page/index.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home_page/index.html.erb:17
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/home_page/index.html.erb:19
+  Rendered home_page/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 78ms (Views: 64.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/user/1" for ::1 at 2020-02-13 15:04:39 +0100
+Processing by ShowUserController#profil as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:3
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/controllers/show_user_controller.rb:5
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  Rendering show_user/profil.html.erb within layouts/application
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/show_user/profil.html.erb:11
+  Rendered show_user/profil.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 75ms (Views: 55.2ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/cities/1" for ::1 at 2020-02-13 15:04:41 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:3
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 1]]
+  ↳ app/controllers/cities_controller.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/cities_controller.rb:6
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 77ms (Views: 54.3ms | ActiveRecord: 9.5ms)
+
+
+Started DELETE "/sessions/333c7ddac0cf1dcc838271956adf08dd" for ::1 at 2020-02-13 15:04:51 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"R+wX7DlcbbEY2u7BiXVfwclyyTPl+CJ+u+Kq7of0ZeO0RurgYfy5cz6d+fddepp2PxIfv0U+MBzpka7yHdg6gw==", "id"=>"333c7ddac0cf1dcc838271956adf08dd"}
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips" for ::1 at 2020-02-13 15:04:51 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossips/index.html.erb:19
+  Rendered gossips/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 67ms (Views: 62.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for ::1 at 2020-02-13 15:04:51 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 65ms (Views: 61.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-02-13 15:05:08 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fDXxrnmdou2rbs5/GVxBhApEhffYYj+F1/NBJxqn2UqHe35h4sIwaAaLfKkKeKBDOwdC0SxED7trZyOVp4N0xw==", "first_name"=>"sam", "lastt_name"=>"sam", "age"=>"20", "email"=>"lala@gmail.com", "city"=>"paris", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"S'inscrire"}
+  [1m[36mCity Load (0.7ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/users_controller.rb:17
+Completed 500 Internal Server Error in 221ms (ActiveRecord: 0.7ms)
+
+
+  
+NameError (undefined local variable or method `old' for #<UsersController:0x00007fae851f8fe8>
+Did you mean?  load):
+  
+app/controllers/users_controller.rb:19:in `block in create'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/users" for ::1 at 2020-02-13 15:05:28 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fDXxrnmdou2rbs5/GVxBhApEhffYYj+F1/NBJxqn2UqHe35h4sIwaAaLfKkKeKBDOwdC0SxED7trZyOVp4N0xw==", "first_name"=>"sam", "lastt_name"=>"sam", "age"=>"20", "email"=>"lala@gmail.com", "city"=>"paris", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"S'inscrire"}
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "age", "created_at", "updated_at", "city_id", "password_digest", "email") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "sam"], ["age", 20], ["created_at", "2020-02-13 14:05:29.182030"], ["updated_at", "2020-02-13 14:05:29.182030"], ["city_id", 1], ["password_digest", "$2a$12$fWhQKeneaXz9hthsopQmpOd4t9ushAiHyXsrNE.EPbFHzTa.yYCTq"], ["email", "lala@gmail.com"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Redirected to http://localhost:3000/user/2
+Completed 302 Found in 324ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/user/2" for ::1 at 2020-02-13 15:05:29 +0100
+Processing by ShowUserController#profil as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:3
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/controllers/show_user_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  Rendering show_user/profil.html.erb within layouts/application
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/show_user/profil.html.erb:11
+  Rendered show_user/profil.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 111ms (Views: 84.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/cities/1" for ::1 at 2020-02-13 15:05:30 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:3
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 1]]
+  ↳ app/controllers/cities_controller.rb:5
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/cities_controller.rb:6
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/cities_controller.rb:6
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 85ms (Views: 68.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/gossips/1" for ::1 at 2020-02-13 15:05:36 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:8
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:9
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  Rendered gossips/show.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 87ms (Views: 78.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for ::1 at 2020-02-13 15:05:40 +0100
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/home_page/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home_page/index.html.erb:17
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/home_page/index.html.erb:19
+  Rendered home_page/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 65ms (Views: 60.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gossips/new" for ::1 at 2020-02-13 15:05:43 +0100
+Processing by GossipsController#new as HTML
+  Rendering gossips/new.html.erb within layouts/application
+  Rendered gossips/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 76ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/gossips" for ::1 at 2020-02-13 15:05:48 +0100
+Processing by GossipsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"upkptDIuAd9bveh0o5QT2KHdF5TuiYtjfhA/X5nonnU+wJJL4hHs15MnVp8obsNPwMBsRl3U3a9fNbhixN60eQ==", "title"=>"Salam", "content"=>"oo", "commit"=>"Create Gossip"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossips_controller.rb:18
+  [1m[36mGossip Create (0.7ms)[0m  [1m[32mINSERT INTO "gossips" ("content", "created_at", "updated_at", "title", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "oo"], ["created_at", "2020-02-13 14:05:48.312431"], ["updated_at", "2020-02-13 14:05:48.312431"], ["title", "Salam"], ["user_id", 2]]
+  ↳ app/controllers/gossips_controller.rb:18
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossips_controller.rb:18
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2020-02-13 15:05:48 +0100
+Processing by HomePageController#index as HTML
+  Rendering home_page/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/home_page/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home_page/index.html.erb:17
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/home_page/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home_page/index.html.erb:17
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ app/views/home_page/index.html.erb:19
+  Rendered home_page/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 68ms (Views: 63.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/user/2" for ::1 at 2020-02-13 15:05:50 +0100
+Processing by ShowUserController#profil as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:3
+  [1m[36mGossip Load (3.8ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/controllers/show_user_controller.rb:5
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  Rendering show_user/profil.html.erb within layouts/application
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/show_user/profil.html.erb:11
+  Rendered show_user/profil.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 93ms (Views: 68.9ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/cities/1" for ::1 at 2020-02-13 15:05:52 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCity Load (10.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:3
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 1]]
+  ↳ app/controllers/cities_controller.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/cities_controller.rb:6
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/cities_controller.rb:6
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 85ms (Views: 63.0ms | ActiveRecord: 11.4ms)
+
+
+Started DELETE "/sessions/333c7ddac0cf1dcc838271956adf08dd" for ::1 at 2020-02-13 15:05:58 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"870SGuZP2QZjtS+7UC5gBjj+Z5X3M0JaY6P4zryXYGsAF+8Wvu8NxEXyOI2EIaWxzp6xGVf1UDgx0PzSJrs/Cw==", "id"=>"333c7ddac0cf1dcc838271956adf08dd"}
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips" for ::1 at 2020-02-13 15:05:58 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossips/index.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ app/views/gossips/index.html.erb:19
+  Rendered gossips/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 74ms (Views: 68.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/new" for ::1 at 2020-02-13 15:05:59 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 67ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2020-02-13 15:06:01 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 72ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for ::1 at 2020-02-13 15:06:06 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ewo8EU4HbegapMLAhObQ2KnOLWojAWHDwhIj1ncvnudp1uL2ekqeKcEzOx6XnLS7gX9iQqgDbeZiwyY2FTgHNw==", "email"=>"lala@gmail.com", "password"=>"[FILTERED]", "commit"=>"Se connecter"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "lala@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:12
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 288ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/gossips" for ::1 at 2020-02-13 15:06:06 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossips/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ app/views/gossips/index.html.erb:19
+  Rendered gossips/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 74ms (Views: 70.0ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/sessions/333c7ddac0cf1dcc838271956adf08dd" for ::1 at 2020-02-13 15:06:08 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FVDPNqAGpXxIL/T/pW4XW0e7CjJLXbE7+as4f1Z0Rk/m+jI6+KZxvm5o48lxYdLssdvcvuubo1mr2DxjzFgZLw==", "id"=>"333c7ddac0cf1dcc838271956adf08dd"}
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/gossips" for ::1 at 2020-02-13 15:06:08 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 1]]
+  ↳ app/views/gossips/index.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:17
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."gossip_id" = $1[0m  [["gossip_id", 2]]
+  ↳ app/views/gossips/index.html.erb:19
+  Rendered gossips/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 98ms (Views: 88.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/new" for ::1 at 2020-02-13 15:06:09 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 64ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-02-13 15:06:42 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a/W1FdO73U7NmqsIPVORLko/TvuDV1LIr1X1sXZkv3WQuzraSORPy2B/Gd4ud3Dpe3yJ3XdxYvYTwZcDy0AS+A==", "first_name"=>"adkus", "lastt_name"=>"ca", "age"=>"20", "email"=>"a@a.com", "city"=>"dunkerque", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"S'inscrire"}
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mCity Create (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dunkerque"], ["created_at", "2020-02-13 14:06:42.835143"], ["updated_at", "2020-02-13 14:06:42.835143"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "age", "created_at", "updated_at", "city_id", "password_digest", "email") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "adkus"], ["age", 20], ["created_at", "2020-02-13 14:06:42.836641"], ["updated_at", "2020-02-13 14:06:42.836641"], ["city_id", 2], ["password_digest", "$2a$12$ALfeN/hYVMxh0AeetxsGYuW/iwykt7qKqzu7uLclaN6aTLl56p4QG"], ["email", "a@a.com"]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:26
+Redirected to http://localhost:3000/user/3
+Completed 302 Found in 290ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/user/3" for ::1 at 2020-02-13 15:06:42 +0100
+Processing by ShowUserController#profil as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:3
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/controllers/show_user_controller.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/show_user_controller.rb:6
+  Rendering show_user/profil.html.erb within layouts/application
+  [1m[36mCity Load (0.2ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/show_user/profil.html.erb:11
+  Rendered show_user/profil.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 70ms (Views: 61.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cities/2" for ::1 at 2020-02-13 15:06:44 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCity Load (6.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:3
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 2]]
+  ↳ app/controllers/cities_controller.rb:5
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/cities_controller.rb:6
+  Rendering cities/show.html.erb within layouts/application
+  Rendered cities/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 73ms (Views: 52.6ms | ActiveRecord: 8.3ms)
+
+
