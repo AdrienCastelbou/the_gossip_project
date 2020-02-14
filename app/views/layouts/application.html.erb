@@ -32,6 +32,28 @@
         <% end %>
       </div> 
   </nav>
+  <% if !flash.alert.nil? %>
+    <div class="mt-4 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center mt-3">
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%=  flash.alert %>
+      </div>
+    </div>
+    </div>
+    <% elsif !flash.notice.nil? %>
+    <div class="mt-4 row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center mt-3">
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%=  flash.notice %>
+      </div>
+    </div>
+    </div>
+    
+    <% end %>
   
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(content: params[:content], user: current_user, gossip: Gossip.find(params[:gossip_id]))
-    redirect_to gossip_path(@comment.gossip.id)
+    redirect_to gossip_path(@comment.gossip.id), :notice => "Le commentaire a bien été créé"
   end
 
   def edit
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
     comment_params = params.require(:comment).permit(:content)
   
   if @comment.update(comment_params)
-    redirect_to gossip_path(@comment.gossip.id)
+    redirect_to gossip_path(@comment.gossip.id),  :notice => "Le commentaire a bien été modifié."
   else
     render edit_comment_path(params[:id])
   end

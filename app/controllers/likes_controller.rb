@@ -8,7 +8,7 @@ class LikesController < ApplicationController
       flash[:notice] = "You can't like more than once"
     else
       @gossip.likes.create(user_id: current_user.id)
-      redirect_to gossip_path(@gossip.id)
+      redirect_back(fallback_location: gossips_path)
     end
   end
 
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
       flash[:notice] = "Cannot unlike"
     else
       @like.destroy
-      redirect_to gossip_path(@gossip.id)
+      redirect_back(fallback_location: gossips_path)
     end
   end
 

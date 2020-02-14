@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      remember(user)
+      remember(user) if params[:accept]
       redirect_to gossips_path
     else
       render 'new'

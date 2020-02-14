@@ -16,7 +16,8 @@ class GossipsController < ApplicationController
   def create
       @gossip = Gossip.new(title: params[:title], content: params[:content], user: current_user)
       if @gossip.save
-        redirect_to root_path 
+        flash[:notice] = "Post successfully created"
+        redirect_to root_path
       else
         render new_gossip_path
       end
@@ -31,7 +32,7 @@ class GossipsController < ApplicationController
     gossip_params = params.require(:gossip).permit(:title, :content)
   
   if @gossip.update(gossip_params)
-    redirect_to gossip_path(params[:id])
+    redirect_to gossip_path(params[:id]),  :notice => "Le potin a bien été modifié."
   else
     render edit_gossip_path(params[:id])
   end

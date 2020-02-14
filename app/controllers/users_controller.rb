@@ -25,8 +25,12 @@ class UsersController < ApplicationController
     @user = User.new(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], city: city, password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email] )
     if @user.save
       log_in(@user)
+      puts "aaaaaaaaaaaaaaaaaaaaaa"
+      puts params[:accept]
+      remember(@user) if params[:accept]
       redirect_to gossips_path
     else
+      
       render new_user_path
     end
   end

@@ -6,6 +6,9 @@
       <%= label_tag 'Mot de passe' %>
       <%= text_field_tag 'password', "", class: 'form-control' %>
       <br /> <br />
+      <%= check_box_tag 'accept'%>
+      <%= label_tag 'Se souvenir de moi' %>
+      <br /> <br />
       <%= submit_tag "Se connecter" %>
 
 <% end %>
